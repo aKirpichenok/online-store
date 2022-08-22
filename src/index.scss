@@ -1,3 +1,10 @@
-* {
-    font-size: 32px;
+@import './styles/var';
+@import './styles/style';
+@import './styles/footer';
+@import './styles/header';
+@import './styles/home-page';
+
+.content {
+    padding: 100px 0 0 0;
+    flex: 1 1 auto;
 }

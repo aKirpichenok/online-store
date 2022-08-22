@@ -1,13 +1,15 @@
+import App from "./components/App";
 import React from "react";
 import { createRoot } from 'react-dom/client';
 import "./index.scss";
+import { BrowserRouter } from "react-router-dom";
 
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
-    <div>
-        Hello World
-    </div>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
 )

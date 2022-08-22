@@ -25,7 +25,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        filename: "index.[contenthash].js"
+        filename: "index.[contenthash].js",
+        assetModuleFilename: "assets/[name][ext]"
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -56,6 +57,10 @@ module.exports = {
                     },
                     "sass-loader"
                 ],
+            },
+            {
+                test: /\.(jpe?g|png|webp|gif|svg)$/,
+                type: 'asset/resource'
             },
             {
                 test: /\.tsx?$/i,

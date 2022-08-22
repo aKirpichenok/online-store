@@ -1,0 +1,65 @@
+
+.header {
+    width: 100%;
+    height: 80px;
+    position:fixed;
+    background-color: $nav;
+    z-index: 5;
+    transition: background-color 1s;
+    .navbar {
+        font-size: 22px;
+        font-weight: 500;
+        padding: 25px 0;
+        display:flex;
+        justify-content: space-between;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+
+
+        a {
+            color: $a-color;
+            transition: color 0.4s;
+        }
+            .logo {
+                margin-left: 10%;
+            }
+            .logo:hover {
+                a {
+                    color: rgb(27, 141, 216);
+                }
+                
+            }
+        
+        .navmenu {
+            
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-left: 20%;
+            a {
+                transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+                transition-duration: 400ms;
+                transition-property: color;
+                position: relative;
+                opacity: 0.5;
+                transition: opacity 0.5s;
+                &:hover {
+                    opacity: 1;
+                }
+                &.active {
+                    opacity: 1;
+                }
+            }
+
+        }
+    }
+}
+.nav-black {
+    background-color:inherit;
+    .navbar {
+        a {
+            color:black;
+        }
+    }
+}
