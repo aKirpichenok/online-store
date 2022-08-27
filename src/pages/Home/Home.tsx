@@ -5,6 +5,7 @@ import electronic from '../../img/electronic.jpg';
 import jewelery from '../../img/jewelery.jpg';
 import mens_clothing from '../../img/mens_clothing.jpg';
 import womens_clothing from '../../img/womens_clothing.jpg';
+import HomeUI from './HomeUI';
 
 export const Home = () => {
     const navigate = useNavigate()
@@ -28,27 +29,35 @@ export const Home = () => {
                         Доступные цены 
                     </h3>
                 </div>
-                <NavLink to='about' className="home-link__catalog">Купить</NavLink>
+                <NavLink to='about' className="home-link__catalog">Подробнее</NavLink>
             </div>
             
             
             <div className="home-block__categories home-categories">
-                <div className="home-categories__electronics category" onClick={() => navigate('login')}>
-                    <div></div>
-                    <img src={electronic} alt="electronic" />
-                </div>
-                <div className="home-categories__jewelery category" onClick={() => navigate('login')}>
-                    <div></div>
-                    <img src={jewelery} alt="" />
-                </div>
-                <div className="home-categories__mens-clothing category" onClick={() => navigate('login')}>
-                    <div></div>
-                    <img src={mens_clothing} alt="" />
-                </div>
-                <div className="home-categories__womens-clothing category" onClick={() => navigate('login')}>
-                    <div></div>
-                    <img src={womens_clothing} alt="" />
-                </div>
+                <HomeUI
+                    divName='electronics'
+                    title='Электроника'
+                    onClick={()=>navigate('login')}
+                    imgSRC={electronic}
+                />
+                <HomeUI
+                    divName='jewelery'
+                    title='Ювелирные изделия'
+                    onClick={()=>navigate('login')}
+                    imgSRC={jewelery}
+                />
+                <HomeUI
+                    divName='mens-clothing'
+                    title='Мужская одежда'
+                    onClick={()=>navigate('login')}
+                    imgSRC={mens_clothing}
+                />
+                <HomeUI
+                    divName='womens-clothing'
+                    title='Женская одежда'
+                    onClick={()=>navigate('login')}
+                    imgSRC={womens_clothing}
+                />
             </div>
             
         </div>
