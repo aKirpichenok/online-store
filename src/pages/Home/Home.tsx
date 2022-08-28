@@ -37,25 +37,25 @@ export const Home = () => {
                 <HomeUI
                     divName='electronics'
                     title='Электроника'
-                    onClick={()=>navigate('login')}
+                    onClick={()=>navigate('catalog/electronics')}
                     imgSRC={electronic}
                 />
                 <HomeUI
                     divName='jewelery'
                     title='Ювелирные изделия'
-                    onClick={()=>navigate('login')}
+                    onClick={()=>navigate('catalog/jewelery')}
                     imgSRC={jewelery}
                 />
                 <HomeUI
                     divName='mens-clothing'
                     title='Мужская одежда'
-                    onClick={()=>navigate('login')}
+                    onClick={()=>navigate("catalog/men's clothing")}
                     imgSRC={mens_clothing}
                 />
                 <HomeUI
                     divName='womens-clothing'
                     title='Женская одежда'
-                    onClick={()=>navigate('login')}
+                    onClick={()=>navigate("catalog/women's clothing")}
                     imgSRC={womens_clothing}
                 />
             </div>
