@@ -1,6 +1,4 @@
 import React,{useState} from 'react';
-import basket from '../../img/basket.svg'; 
-import BasketModal from './BasketModal';
 
 export const Basket = () => {
     

@@ -3,4 +3,4 @@ export { Home } from "./Home/Home";
 export { Login } from "./Login/Login";
 export { Catalog } from "./Catalog/Catalog";
 export { Basket } from "./Basket/Bakset";
-export { CatalogMenu } from './Catalog/CatalogMenu'
+export { CatalogMain } from './Catalog/CatalogMain'

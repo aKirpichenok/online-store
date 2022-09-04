@@ -9,9 +9,6 @@ import HomeUI from './HomeUI';
 
 export const Home = () => {
     const navigate = useNavigate()
-    fetch("https://fakestoreapi.com/products/category/men's clothing")
-            .then(res=>res.json())
-            .then(json=>console.log(json))
     return (
         <div className="home-block">
             <div className="main-block__image _ibg">
