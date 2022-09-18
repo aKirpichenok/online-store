@@ -1,6 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useForm} from 'react-hook-form';
+import {useForm, SubmitHandler } from 'react-hook-form';
+
+interface FormInputTypes {
+    mail: string;
+    password: number;
+    repeatPassword: number;
+}
+
 
 
 export const SignUp = () => {
@@ -16,14 +23,13 @@ export const SignUp = () => {
         formState: {
             errors,
         }
-    } = useForm ({
+    } = useForm <FormInputTypes> ({
         mode:'onChange'
     })
 
     const watchAllFileds = watch()
 
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data))
+    const onSubmit: SubmitHandler <FormInputTypes> = (data) => {
         reset()
         navigate('/')
     }
@@ -46,7 +52,6 @@ export const SignUp = () => {
                     
                         <div className="error">
                             {errors?.mail && <p>{errors?.mail?.message || 'Неверный mail'}</p>}
-                            {console.log(watchAllFileds)}
                         </div>
                     </label>
 

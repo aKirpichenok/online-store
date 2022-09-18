@@ -3,10 +3,10 @@ import React,{useState, useEffect} from 'react';
 
     export const useSearch = (str) => {
 
-        const [state, setState] = useState([])
-        const [succes,setSuccess] = useState(false)
-        const [isLoading,setIsLoading] = useState(true)
-        const [error, setError] = useState(false)
+        const [state, setState] = useState<any>([])
+        const [succes,setSuccess] = useState<boolean>(false)
+        const [isLoading,setIsLoading] = useState<boolean>(true)
+        const [error, setError] = useState<boolean>(false)
 
         useEffect(() => {
             setIsLoading(true)

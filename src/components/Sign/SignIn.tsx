@@ -1,6 +1,13 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
+import { useForm, SubmitHandler} from 'react-hook-form';
 import { useNavigate, useLocation, NavLink } from 'react-router-dom';
+
+
+
+interface FromInputTypes {
+    userLogin: string;
+    userPass: number;
+}
 
 export const SingIn = () => {
     const navigate = useNavigate()
@@ -18,10 +25,9 @@ export const SingIn = () => {
         formState: {
             errors
         }
-    } = useForm ()
+    } = useForm <FromInputTypes> ()
 
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data))
+    const onSubmit: SubmitHandler <FromInputTypes> = (data) => {
         reset()
         navigate(fromPage)
     }
@@ -44,7 +50,6 @@ export const SingIn = () => {
                     
                     <div className="error">
                         {errors?.userLogin && <p>{'Неверный логин'}</p>}
-                        {console.log(errors)}
                     </div>
                 </label>
                 
