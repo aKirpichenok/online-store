@@ -22,7 +22,7 @@ export const CardUI: React.FC<CardUIProps> = ({card, open}) => {
     return (
     <>
                     <div className="_ibg items-img">
-                        <img src={card.image} alt="image" className=""  onClick={() => open(card.id)}/>
+                        <img src={card.image} alt="image" className=""  onClick={open}/>
                     </div>
                     <div className="items-info">
                         <p className="items-title">{card.title}</p>

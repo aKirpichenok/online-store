@@ -1,8 +1,10 @@
 import React,{ useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 
 const Header = () => {
+    const location = useLocation()
+    const fromPage = location.pathname || '/'
     
     const [state,setState] = useState('nav-black')
     useEffect (() => {
@@ -14,7 +16,6 @@ const Header = () => {
             }
         })
     },[])
-
 
     return (
         <header className={`header ${state}`}>
@@ -30,7 +31,7 @@ const Header = () => {
                 
             </ul>
             <div>
-                <NavLink to="login">Войти</NavLink>
+                <NavLink to="signIn" state={{fromPage:fromPage}}>Войти</NavLink>
             </div>
         </nav>
         </header>

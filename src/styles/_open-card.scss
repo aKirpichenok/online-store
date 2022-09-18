@@ -1,0 +1,49 @@
+.card-container {
+    transition: all 0.5s;
+    // display: flex;
+    // flex-direction: column;
+    // text-align: center;
+    // align-items: center;
+    justify-content: center;
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0);
+        transition-delay: 0.5s;
+    }
+    &.hide {
+        position:absolute;
+        top: 0;
+        transform: translate(350px);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    
+    .card-back::after {
+        content: "\2190";
+        font-size: 24px;
+        
+    }
+    .card-back {
+        background-color: none;
+    }
+
+    .card-image {
+        margin: 0 auto;
+        padding: 0 0 60% 0;
+        width: 60%;
+    }
+
+    // .card-title {
+
+    // }
+
+    // .card-body {
+
+    // }
+
+    // .card-price {
+
+    // }
+}

@@ -18,6 +18,7 @@ interface CardProps {
     };
 }
 
+
 export const Card: React.FC<CardProps> = ({cards}) => {
     const [open, setOpen] = useState<Boolean>(false)
     const [id, setId] = useState<Number>(null)
@@ -27,22 +28,24 @@ export const Card: React.FC<CardProps> = ({cards}) => {
         setOpen(!open)
     }
 
-
-    if(open) {
-        return <OpenCard 
-        id={id}
-        close={openCard}
-        />
-    }
-    return <div className="catalog__column catalog-items">
-        {cards.map(card => 
-                <div key={card.id} className="items-card">
-                   <CardUI 
-                    card={card}
-                    open={setOpen}
-                   />
+    
+    return <>
+                <div className={`catalog__column catalog-items ${open ? 'hide': 'show'}`}>
+                    {cards.map(card => 
+                        <div key={card.id} className="items-card">
+                            <CardUI 
+                                card={card}
+                                open={() => openCard(card.id)}
+                            />
+                        </div>
+                            )
+                    }
                 </div>
-            )
-        }
-    </div>
+
+                    <OpenCard 
+                    id={id}
+                    close={openCard}
+                    open={open}
+                    />
+            </>
 }

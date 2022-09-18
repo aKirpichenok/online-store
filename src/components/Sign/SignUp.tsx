@@ -1,0 +1,94 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import {useForm} from 'react-hook-form';
+
+
+export const SignUp = () => {
+
+    const navigate = useNavigate()
+    
+
+    const {
+        register,
+        reset,
+        handleSubmit,
+        watch,
+        formState: {
+            errors,
+        }
+    } = useForm ({
+        mode:'onChange'
+    })
+
+    const watchAllFileds = watch()
+
+    const onSubmit = (data) => {
+        alert(JSON.stringify(data))
+        reset()
+        navigate('/')
+    }
+    return (
+        <div className="login_page">
+        <div className="form-sign">
+            <h1>SignUp Page</h1>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <fieldset className="form-sign__fieldset">
+                    <label>
+                        <span className="fontawesome-user"></span>
+                        <input 
+                            {...register('mail', {
+                                required:'Неверный mail',
+                                pattern: /^[\w-.]+@[\w-]+\.[a-z]{2,4}$/i,
+                            })}
+                            placeholder="qwe@mail.ru"
+                            className="login"
+                        /> 
+                    
+                        <div className="error">
+                            {errors?.mail && <p>{errors?.mail?.message || 'Неверный mail'}</p>}
+                            {console.log(watchAllFileds)}
+                        </div>
+                    </label>
+
+                    <label>
+                        <span className="fontawesome-lock"></span>
+                        <input
+                            {...register('password', {
+                                required:'Слишком ненадёжный пароль',
+                                pattern: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}/g
+                            })}
+                            type="password"
+                            placeholder="Введите пароль"
+                            className="password"
+                        />
+
+                        <div className="errors">
+                            {errors?.password && <p>{errors?.password?.message || 'Слишком ненадёжный пароль'}</p>}
+                        </div>
+                    </label>
+                    <label>
+                        <span className="fontawesome-lock"></span>
+                        <input 
+                            {...register('repeatPassword', {
+                                required: true,
+                                validate: value => value === watchAllFileds.password
+                            })}
+                            type='password'
+                            placeholder="Повторите пароль"
+                            className="password"
+                        />
+
+                        <div className="errors">
+                            {errors?.repeatPassword && <p>{errors?.repeatPassword?.message || 'Пароль не совпадает'}</p>}
+                        </div>
+                    </label>
+                    <input 
+                        type="submit"
+                        value="Регистрация"
+                    />
+                </fieldset>
+            </form>
+        </div>
+        </div>
+    )
+}

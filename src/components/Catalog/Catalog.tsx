@@ -1,5 +1,4 @@
 import React from 'react';
-import ContentLoader, { Facebook }  from 'react-content-loader';
 
 import { useSearch } from '../../hooks/searchHook';
 import { useParams } from 'react-router';
