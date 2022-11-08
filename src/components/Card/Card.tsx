@@ -32,6 +32,7 @@ export const Card: React.FC<CardProps> = ({cards}) => {
     const [open, setOpen] = useState<boolean>(false)
     const [id, setId] = useState<number>(null)
 
+
     const openCard = (id:number) => {
         setId(id)
         setOpen(!open)

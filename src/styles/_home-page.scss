@@ -1,57 +1,168 @@
 .home-block{
     position: relative;
+    background-color: #6B92AE;
+.lamp {
+    display: block;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  -webkit-box-shadow: 0px 4px 100px 0px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: 0px 4px 100px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 100px 0px rgba(255, 255, 255, 0.2);
+}
+
+    input {
+        position: absolute;
+        z-index: 100;
+        right: 0;
+        top: 0;
+        appearance: none;
+        height: 50px;
+        width: 50px;
+        background-color: rgb(255, 238, 111);
+        border-radius: 100%;
+        transform: translate(0, 120px);
+        cursor: pointer;
+      
+        animation-name: switch2;
+        animation-duration: 0.8s;
+        animation-timing-function: ease;
+      }
+      
+      .line {
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        right: 23px;
+        height: 250px;
+        width: 2px;
+        background-color: rgb(255, 238, 111);
+        transform: translate(0, -110px);
+      
+        animation-name: pull2;
+        animation-duration: 0.8s;
+        animation-timing-function: ease;
+      }
+      
+      input:checked {
+        background-color: rgb(255, 238, 111);
+      
+        animation-name: switch;
+        animation-duration: 0.8s;
+        animation-timing-function: ease;
+      }
+      
+      input:checked ~ .line {
+        background-color: rgb(255, 238, 111);
+      
+        animation-name: pull;
+        animation-duration: 0.8s;
+        animation-timing-function: ease;
+      }
+      
+      @keyframes pull {
+        0%,
+        100% {
+          height: 250px;
+        }
+        50% {
+          height: 300px;
+        }
+      }
+      
+      @keyframes pull2 {
+        0%,
+        100% {
+          height: 250px;
+        }
+        50% {
+          height: 300px;
+        }
+      }
+      
+      @keyframes switch {
+        0%,
+        100% {
+          transform: translate(0, 120px);
+        }
+        50% {
+          transform: translate(0, 150px);
+        }
+      }
+      
+      @keyframes switch2 {
+        0%,
+        100% {
+          transform: translate(0, 120px);
+        }
+        50% {
+          transform: translate(0, 150px);
+        }
+      }
+      .home-block__screen {
+        position: absolute;
+        top: 366px;
+        left: 1960%;
+        width: 510px;
+        height: 250px;
+        background-color: #6B92AE;
+        &--active {
+            background-color: rgb(255, 238, 111);
+        }
+      }
     .home-categories {
         padding: 20px 0 10px 0;
         display: flex;
         flex-wrap: wrap;
         text-align: center;
-        &__electronics  {
-            .category-before {
-                div {
-                    background-color: rgb(81, 81, 81);
-                    }
-                    button {
-                        background-color: rgb(81, 81, 81);
-                    }
-            }
+        
+        // &__electronics  {
+        //     .category-before {
+        //         div {
+        //             background-color: rgb(81, 81, 81);
+        //             }
+        //             button {
+        //                 background-color: rgb(81, 81, 81);
+        //             }
+        //     }
             
-            img {
-                transform: translateX(-1000px);
-            }
+        //     img {
+        //         transform: translateX(-1000px);
+        //     }
             
-        }
-        &__jewelery {
-            .category-before {
-                div {
-                    background-color: rgb(238, 208, 17);
-                    }
-            }
+        // }
+        // &__jewelery {
+        //     .category-before {
+        //         div {
+        //             background-color: rgb(238, 208, 17);
+        //             }
+        //     }
             
-            img {
-                transform: translateX(1000px);
-            }
-        }
-        &__mens-clothing {
-            .category-before {
-                div {
-                    background-color: rgb(17, 153, 238);
-                    }
-            }
+        //     img {
+        //         transform: translateX(1000px);
+        //     }
+        // }
+        // &__mens-clothing {
+        //     .category-before {
+        //         div {
+        //             background-color: rgb(17, 153, 238);
+        //             }
+        //     }
             
-            img {
-                transform: translateX(-1000px);
-            }
-        }
-        &__womens-clothing {
-            .category-before {
-                div {
-                    background-color: rgb(224, 53, 190);
-                    }
-            }
-            img {
-                transform: translateX(1000px);
-            }
-        }
+        //     img {
+        //         transform: translateX(-1000px);
+        //     }
+        // }
+        // &__womens-clothing {
+        //     .category-before {
+        //         div {
+        //             background-color: rgb(224, 53, 190);
+        //             }
+        //     }
+        //     img {
+        //         transform: translateX(1000px);
+        //     }
+        // }
         .category {
             flex: 1 1 50%;
             padding: 200px 160px;
@@ -113,18 +224,53 @@
         }
     }
 }
-
+@keyframes pole {
+    0% {
+        height: 0px;
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.7
+    }
+    100% {
+        opacity: 1;
+        height: 340px;
+    }
+}
 .home-block__body {
     position: absolute;
     top: 10px;
     display:flex;
     flex-direction: column;
+      
+      
+      
+    // &:after {
+    //     top: -110px;
+    //     right: -1400px;
+    //     content: '';
+    //     position: absolute;
+    //     width: 2px;
+    //     height: 340px;
+    //     background-color: yellow;
+    //     animation: pole 1s ease-in;
+    // }
+    // padding: 0 0 0 40px;
     .home-body__title {
-        font-size: 64px;
+        font-size: 42px;
         font-weight: 500;
-        padding:  200px 80px;
-        h3:not(:last-child) {
-            margin-bottom: 50px;
+        padding:  170px 20px 170px 120px;
+        width: 100vw;
+        .home-top{
+            // text-align:left;
+        }
+        .home-middle{
+            text-align: center;
+        }
+        .home-bottom{
+            margin-top: 40px;
+            text-align: end;
+            align-items: flex-end;
         }
     }
 
@@ -153,9 +299,15 @@
 }
 
 .main-block__image {
-    width: 100%;
+    // position: fixed;
     height: 900px;
     top: -100px;
     left: 0;
-    opacity: 0.6;
+    object-fit: cover;
+    // opacity: 0.6;
+    img {
+        width: 100%;
+        object-fit: cover;
+        object-position: right;
+    }
 }

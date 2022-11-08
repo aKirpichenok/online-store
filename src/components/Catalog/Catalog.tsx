@@ -10,9 +10,7 @@ export const Catalog = () => {
     const { state, isLoading, error, succes } = useSearch(`https://fakestoreapi.com/products/category/${type}`)
 
     if(isLoading) {
-        return (
-        <Loading />
-        )
+        return <Loading />
     }
     return (
         <>

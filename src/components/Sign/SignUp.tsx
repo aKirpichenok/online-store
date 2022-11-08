@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {useForm, SubmitHandler } from 'react-hook-form';
 
 interface FormInputTypes {
@@ -13,6 +13,9 @@ interface FormInputTypes {
 export const SignUp = () => {
 
     const navigate = useNavigate()
+    const location = useLocation()
+
+    const fromPage = location.state?.['fromPage']
     
 
     const {
@@ -39,6 +42,12 @@ export const SignUp = () => {
             <h1>SignUp Page</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset className="form-sign__fieldset">
+                <input 
+                    type="button"
+                    className="sign-back"
+                    value="Назад"
+                    onClick={() => navigate(fromPage)}
+                />
                     <label>
                         <span className="fontawesome-user"></span>
                         <input 

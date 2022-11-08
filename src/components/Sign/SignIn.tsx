@@ -37,6 +37,12 @@ export const SingIn = () => {
         <div className="form-sign">
             <h1>SignIn Page</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
+                <input 
+                    type="button"
+                    className="sign-back"
+                    value="Назад"
+                    onClick={() => navigate(fromPage)}
+                />
                 <fieldset className="form-sign__filedset">
                 <label>
                 <span className="fontawesome-user"></span>
@@ -46,6 +52,7 @@ export const SingIn = () => {
                             validate: value => value === userLogin
                         })}
                         className="login"
+                        placeholder='Логин'
                     /> 
                     
                     <div className="error">
@@ -57,6 +64,7 @@ export const SingIn = () => {
                 <span className="fontawesome-lock"></span>
                     <input 
                         type='password'
+                        placeholder='Пароль'
                         {...register('userPass', {
                             required:'Поле обязательно к заполнению',
                             validate: value => value === userPass,
@@ -75,7 +83,7 @@ export const SingIn = () => {
                
             </form>
             <p className="form-bottom">Нет аккаунта? &nbsp;&nbsp;
-            <NavLink to='/signUp'>Регистрация<span className="fontawesome-arrow-right"></span></NavLink></p>
+            <NavLink to='/signUp' state={{fromPage:fromPage}}>Регистрация<span className="fontawesome-arrow-right"></span></NavLink></p>
         </div>
     )
 }
